@@ -1,0 +1,202 @@
+.userInformation {
+  background-image: url("../../public/assets/mainPageBackground.png");
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.infoCard {
+  background-color: var(--primary-dark);
+  border-radius: 10px;
+  width: 55%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.UserInfotitle {
+  font-size: 28px;
+  color: var(--primary-light);
+  font-weight: 600;
+  margin: 30px 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  border-bottom: 1.4px solid var(--secondary);
+}
+.informationSection {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 40px;
+}
+.imageSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userProfile {
+  width: 200px;
+  height: 200px;
+  background-color: var(--primary-light);
+  padding: 6px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  opacity: 0.8;
+  object-fit: cover;
+}
+.informationEditSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+}
+.inputWrapperUser {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.inputWrapperUser input {
+  color: var(--primary-light);
+  background-color: var(--primary-dark);
+  border: 1.4px solid var(--primary-light);
+  border-radius: 4px;
+  padding: 8px;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 15px;
+}
+.emailAddress {
+  margin-bottom: 6px;
+  border: 1.5px solid var(--secondary);
+  color: var(--primary-light);
+  text-align: center;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: default;
+}
+.inputWrapperUser label {
+  color: var(--primary-light);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.buttonsArea {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.buttonsArea button {
+  background-color: var(--primary-light);
+  border: none;
+  color: var(--primary-dark);
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+.uploadPhoto {
+  background-color: var(--primary-light);
+  padding: 6px;
+  border-radius: 4px;
+  color: var(--primary-dark);
+  cursor: pointer;
+}
+.defaultImage {
+  color: var(--secondary);
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+  cursor: pointer;
+}
+#exitInfoMenu {
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+  border: none;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 15px 20px;
+}
+.alertMessage {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--secondary);
+  width: 70%;
+  line-height: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.uploadPhotoStatus {
+  padding-bottom: 10px;
+  color: var(--primary-light);
+}
+.username {
+  margin-bottom: 6px;
+  border: 1.5px solid var(--secondary);
+  color: var(--primary-light);
+  text-align: center;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: default;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 800px) {
+  .infoCard {
+    width: 90%;
+    flex-direction: column;
+  }
+  .informationSection {
+    flex-direction: column;
+    padding: 0px;
+  }
+  .informationEditSection {
+    margin: 10px 0px;
+    width: 100%;
+  }
+  .UserInfotitle {
+    font-size: 18px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+  .userProfile {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-top: 6px;
+  }
+  .defaultImage {
+    font-size: 12px;
+    margin: 6px 0px;
+  }
+  .inputWrapperUser {
+    width: 85%;
+    font-size: 16px;
+  }
+  .username,
+  .emailAddress {
+    border-radius: 2px;
+    padding: 6px;
+    font-size: 14px;
+  }
+  .buttonsArea button {
+    margin-top: 14px;
+  }
+  .alertMessage {
+    margin-bottom: 10px;
+    width: 90%;
+  }
+}

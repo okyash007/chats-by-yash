@@ -1,0 +1,496 @@
+.homeSection {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../public//assets/mainPageBackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.chatCard {
+  background-color: var(--primary-dark);
+  /* border-top-left-radius: 15px;
+  border-top-right-radius: 15px; */
+  width: 75%;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.chatNavTitle {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.chatNavbar {
+  background-color: var(--primary-light);
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border: 1.4px solid var(--primary-dark);
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  justify-content: space-between;
+}
+.navDivider {
+  width: 1.5px;
+  background-color: var(--secondary);
+  border-radius: 10px;
+  height: 4vh;
+  margin-right: 20px;
+}
+.navProfileName {
+  font-size: 15px;
+}
+.navProfileView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navProfileImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.navProfileImage img {
+  border-radius: 10%;
+  width: 35px;
+  height: 35px;
+  margin-left: 14px;
+  object-fit: cover;
+}
+.logoutBtn {
+  margin-left: 20px;
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.mainChatSection {
+  display: flex;
+}
+.friendListSection {
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+}
+.mainChatSectionSeperator {
+  height: auto;
+  width: 1.4px;
+  background-color: var(--secondary);
+}
+.chatViewSection {
+  width: 62%;
+  position: relative;
+}
+.searchFriendMenu {
+  padding: 10px 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.searchFriendInput {
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+  padding: 6px;
+  border: none;
+  border-bottom: 1.4px solid var(--secondary);
+  width: 85%;
+  font-size: 14px;
+  outline: none;
+}
+.addFriendIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-dark);
+  border: none;
+  color: var(--primary-light);
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.settingBtnIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: var(--primary-dark);
+  font-size: 20px;
+  background-color: var(--primary-light);
+  cursor: pointer;
+  margin-left: 15px;
+}
+.friendRequestBtn {
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+  border: none;
+  cursor: pointer;
+}
+.friendListSectionSeperator {
+  width: 100%;
+  height: 1.4px;
+  background-color: var(--secondary);
+}
+.friendListView {
+  max-height: 70vh;
+  min-height: 70vh;
+  overflow: scroll;
+}
+
+.friendListView::-webkit-scrollbar {
+  display: none;
+}
+.searchText {
+  text-align: center;
+  margin: 6px 0px;
+  margin-bottom: -8px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.friendCard,
+.resultCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 10px;
+  border-bottom: 1.4px solid var(--secondary);
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.nameAndLastMessageDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.nameAndLastMessageDiv small {
+  font-size: 12px;
+}
+.friendName {
+  color: var(--primary-light);
+  text-align: left;
+  width: 100%;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+.friendProfilePhoto {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  margin-right: 15px;
+  margin-left: 10px;
+  object-fit: cover;
+}
+.chatIcon,
+.addResultIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary);
+  margin-right: 10px;
+}
+.addResultIcon {
+  font-size: 22px;
+}
+.chatViewNavbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9.4px 18px;
+  border-bottom: 1.4px solid var(--secondary);
+  z-index: -4;
+}
+.chatViewNavbarProfile {
+  display: flex;
+  align-items: center;
+}
+.friendPhotoChatViewNav {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.chatViewFrndName {
+  color: var(--primary-light);
+  letter-spacing: 1px;
+}
+.sendMessageSection {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1.4px solid var(--secondary);
+}
+.inputMessage {
+  width: 100%;
+  background-color: var(--primary-dark);
+  border: none;
+  outline: none;
+  padding: 16px;
+  color: var(--primary-light);
+}
+.sendMessageBtnsArea {
+  display: flex;
+  margin-right: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.sendPhotoIcon {
+  font-size: 22px;
+  margin-right: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: 0.6s ease;
+}
+.sendPhotoIcon:hover {
+  color: var(--primary-light);
+}
+.sendIcon {
+  font-size: 20px;
+  background-color: var(--primary-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.receiverMessageShow {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.senderMessageShow {
+  justify-content: flex-end;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.senderMessageShow p,
+.receiverMessageShow p {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  display: inline;
+  padding: 4px 12px;
+  margin: 4px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.senderMessageShow p {
+  border-bottom-right-radius: 0px;
+}
+.receiverMessageShow p {
+  border-bottom-left-radius: 0px;
+}
+.chattingSection {
+  margin-top: 10px;
+  max-height: 70vh;
+  overflow: scroll;
+  margin-bottom: 50px;
+}
+.chattingSection::-webkit-scrollbar {
+  display: none;
+}
+.messageTimestamp {
+  font-weight: 600;
+  font-size: 10px;
+  color: var(--secondary);
+  margin: 2px 12px 8px 12px;
+  letter-spacing: 0.4px;
+}
+.uploadPhotoMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sendPhotoMessage {
+  width: 220px;
+  border: 3px solid var(--primary-light);
+  margin: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.uniqueCodeView {
+  width: 100%;
+  position: relative;
+  bottom: 6px;
+  margin-top: 10px;
+  padding: 10px;
+  color: var(--primary-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.uniqueCodeLabel {
+  background-color: var(--primary-light);
+  padding: 2px 15px;
+  border-radius: 4px;
+  font-size: 13px;
+  text-align: center;
+  min-width: 80%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#uniqueCode {
+  letter-spacing: 1.4px;
+  color: var(--primary-dark);
+}
+.copyCodeIcon {
+  margin-top: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: var(--primary-dark);
+}
+.lastMessage {
+  color: var(--secondary);
+}
+.friendUniqueCode {
+  position: absolute;
+  right: 15px;
+  color: var(--secondary);
+  letter-spacing: 1.4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.userSRMessage {
+  max-width: 55%;
+}
+.imageDisplayCard img {
+  max-height: 400px;
+  border-radius: 4px;
+  border: 4px solid var(--primary-light);
+}
+.displayViewSec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 1;
+}
+.closeDisplayView {
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--primary-light);
+  display: flex;
+  justify-content: flex-end;
+}
+#uploadPhotoMessageStatus {
+  color: var(--secondary);
+  margin-right: 10px;
+  font-size: 14px;
+  display: flex;
+}
+.uploadIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+.noSelectedChat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 62%;
+}
+.noSelectedtitle {
+  color: var(--secondary);
+  font-size: 14px;
+  margin: 10px;
+  text-align: center;
+}
+.chatNavTitleAndroid {
+  display: none;
+}
+.backToListIcon {
+  color: var(--primary-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#beta {
+  font-size: 12px;
+}
+@media only screen and (max-width: 800px) {
+  .noSelectedChat {
+    display: none;
+  }
+  .friendListSection {
+    width: 100vh;
+  }
+  .chatNavTitle {
+    display: none;
+  }
+  .chatNavTitleAndroid {
+    display: flex;
+    flex-direction: column;
+  }
+  .chatViewNavbar {
+    min-height: 8vh;
+  }
+  .chatViewSection {
+    width: 100vh;
+    min-height: 75vh;
+  }
+  .chatCard {
+    width: 100vw;
+    border-radius: 0px;
+    height: 100vh;
+  }
+  .chatNavbar {
+    border-radius: 0;
+  }
+  .sendMessageSection {
+    position: relative;
+    bottom: 0;
+    min-height: 8vh;
+  }
+  .uniqueCodeView {
+    bottom: 0px;
+  }
+  .imageDisplayCard img {
+    max-width: 70%;
+    border-radius: 4px;
+    border: 4px solid var(--primary-light);
+  }
+  .chatViewFrndName {
+    font-size: 14px;
+  }
+  .chattingSection {
+    min-height: 75vh;
+    margin: 10px 0px 0px 0px;
+  }
+  .closeDisplayView {
+    margin-bottom: 20px;
+  }
+}
