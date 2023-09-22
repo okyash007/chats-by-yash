@@ -233,6 +233,7 @@ const Home = () => {
             <img src={photoView} className="" alt="" />
           </div>
         </section>
+
         <div
           className={
             android
@@ -240,44 +241,66 @@ const Home = () => {
               : "w-screen bg-[#333333] flex flex-col justify-between h-screen animate__animated animate__bounceInDown"
           }
         >
-          <div
-            className="h-[8%] flex justify-between items-center "
-            id="chatNavbar"
-          >
-            <div
-              className="text-white text-2xl ml-3"
-              onClick={() => navigate("/home")}
-            >
-              Chatting App By Yash <small id="beta">(Beta Version) </small>
-            </div>
-            <div
-              className="text-white text-2xl sm:hidden"
-              onClick={() => navigate("/home")}
-            >
-              Chatting App By Yash<small id="beta">(Beta Version)</small>
-            </div>
-            <div className="navProfileView" id="navProfileView">
-              <div className="bg-[#555555] flex items-center rounded-full justify-center">
+          <div className="navProfileView" id="navProfileView">
+            <section className="lg:hidden z-50">
+              <div className="navbar">
+                <div className="container nav-container">
+                  <input
+                    className="checkbox m-4"
+                    type="checkbox"
+                    name=""
+                    id=""
+                  />
+                  <div className="hamburger-lines m-6">
+                    <span className="line line1" />
+                    <span className="line line2" />
+                    <span className="line line3" />
+                  </div>
+                  <div className="menu-items h-[80%] rounded-r-3xl bg-[#3a3a3a] absolute w-screen ">
+                    <li>
+                      {Object.entries(chats)
+                        ?.sort((a, b) => b[1].date - a[1].date)
+                        .map((chat) => {
+                          return (
+                            <Friends
+                              key={chat[0]}
+                              chat={chat}
+                              selectFriendHandler={selectFriendHandler}
+                            />
+                          );
+                        })}
+                    </li>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div className="h-[7%] w-screen flex justify-end ">
+              <div className="bg-[#555555] flex items-center mt-2 ml-3 rounded-full justify-center">
                 <div className="px-2 pl-4 text-white text-xs">
                   {userDetails.name !== null
                     ? userDetails.name.charAt(0).toUpperCase() +
                       userDetails.name.slice(1)
                     : "No Name"}
                 </div>
-                <div
-                  className=""
-                  onClick={userProfilePicClickHandler}
-                >
-                  <img src={userDetails.photo} className="rounded-full w-10" alt="" />
+                <div className="" onClick={userProfilePicClickHandler}>
+                  <img
+                    src={userDetails.photo}
+                    className="rounded-full w-10"
+                    alt=""
+                  />
                 </div>
               </div>
-              <button className="settingBtnIcon mx-3 text-2xl" onClick={handlerSetting}>
+              <button
+                className="settingBtnIcon mx-3 text-2xl"
+                onClick={handlerSetting}
+              >
                 <AiFillSetting />
               </button>
             </div>
           </div>
           <section className="flex h-[92%]">
-            <section className="flex flex-col w-[38%] " >
+            <section className="flex flex-col w-[38%] max-lg:hidden">
               <div className="flex m-4">
                 <input
                   type="text"
@@ -289,7 +312,10 @@ const Home = () => {
                   placeholder="Enter Unique Code"
                   onChange={(e) => setSearch(e.target.value)}
                 />
-                <button className="addFriendIcon text-2xl" onClick={handlerSearch}>
+                <button
+                  className="addFriendIcon text-2xl"
+                  onClick={handlerSearch}
+                >
                   <AiOutlineSearch />
                 </button>
               </div>
@@ -342,8 +368,10 @@ const Home = () => {
               >
                 <p className=" flex cursor-pointer" title="Your Unique Code">
                   <span className="text-[#979797] text-xs">
-                    {"Your Unique Code : "} 
-                    <p className="inline-block text-white text-sm hover:underline">{ userDetails.uid.slice(0, 6)}</p>
+                    {"Your Unique Code : "}
+                    <p className="inline-block text-white text-sm hover:underline">
+                      {userDetails.uid.slice(0, 6)}
+                    </p>
                   </span>
                   <span className="text-white text-xl">
                     <TbCopy />
@@ -351,8 +379,9 @@ const Home = () => {
                 </p>
               </div>
             </section>
+
             {!selectedFrnd && (
-              <div className="flex justify-center items-center w-[62%] m-4 rounded-3xl bg-[#454545]">
+              <div className="flex justify-center items-center w-[62%] max-lg:w-[100%] m-4 rounded-3xl bg-[#454545]">
                 <ul>
                   <li className="noSelectedtitle">
                     Select Your Friend To Chat
@@ -372,12 +401,12 @@ const Home = () => {
             )}
             {selectedFrnd && (
               <section
-                className="relative w-[62%] rounded-3xl bg-[#3b3b3b] m-4  animate__animated animate__fadeIn"
-                id="chatViewSection"
+                className="relative w-[62%] max-lg:w-[100%] rounded-3xl bg-[#3b3b3b] m-4  animate__animated animate__fadeIn"
+                
               >
                 <div className="chatViewNavbar flex justify-between border-b-2 p-5">
                   <div className="chatViewNavbarProfile">
-                    {android && ( 
+                    {android && (
                       <div
                         className="backToListIcon"
                         onClick={backToFriendListHandler}
@@ -406,7 +435,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div
-                  className="chattingSection px-4 animate__animated animate__fadeIn"
+                  className="chattingSection px-4 pb-14 animate__animated animate__fadeIn"
                   id="chattingSection"
                 >
                   {messages &&
@@ -434,10 +463,12 @@ const Home = () => {
                       }
                     })}
                 </div>
-                <SendMessage
-                  userUid={userDetails.uid}
-                  frndUid={selectedFrnd.uid}
-                />
+                <div className="mt-6">
+                  <SendMessage
+                    userUid={userDetails.uid}
+                    frndUid={selectedFrnd.uid}
+                  />
+                </div>
               </section>
             )}
           </section>
