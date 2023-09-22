@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { onAuthStateChanged, updateProfile } from "firebase/auth";
 import { auth, storage, db } from "../backend/firebaseConfig";
 import { useNavigate } from "react-router-dom";
-import "../Styles/UserInfo.css";
+// import "../Styles/UserInfo.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -125,33 +125,43 @@ const UserInfo = () => {
   };
   return (
     <>
-      <section className="userInformation">
-        <div className="infoCard">
-          <button id="exitInfoMenu" onClick={closeButton}>
+      <section className="userInformation bg-[#333333] h-screen flex justify-center items-center">
+        <div className="infoCard flex flex-col relative items-center p-7">
+          <button
+            id="exitInfoMenu"
+            className="absolute right-0 top-0 p-2 rounded-full bg-[#444444]"
+            onClick={closeButton}
+          >
             <AiOutlineClose />
           </button>
-          <div className="UserInfotitle">Your Profile</div>
-          <div className="informationSection">
-            <div className="imageSection">
-              <img
-                className="userProfile"
-                src={
-                  profile === null || profile === ""
-                    ? "https://firebasestorage.googleapis.com/v0/b/chatappbykrish.appspot.com/o/Assets%2Fno%20profile.png?alt=media&token=93d37c13-7c77-4aa2-b5e1-c372b9e4fc34"
-                    : profile
-                }
-                alt="No Profile"
-              />
-              <small
-                className={
-                  uploadStatus !== "" ? "uploadPhotoStatus" : "disable"
-                }
-              >
-                Upload Status: {uploadStatus + "%"}
-              </small>
-              <label htmlFor="uploadProfile" className="uploadPhoto">
-                Upload Photo
-              </label>
+          
+          <div className="informationSection flex">
+            <div className="imageSection rounded pr-9">
+              <div className=" flex flex-col justify-center items-center">
+                <img
+                  className="userProfile rounded-full w-28"
+                  src={
+                    profile === null || profile === ""
+                      ? "https://firebasestorage.googleapis.com/v0/b/chatappbykrish.appspot.com/o/Assets%2Fno%20profile.png?alt=media&token=93d37c13-7c77-4aa2-b5e1-c372b9e4fc34"
+                      : profile
+                  }
+                  alt="No Profile"
+                />
+                <small
+                  className={
+                    uploadStatus !== "" ? "uploadPhotoStatus" : "disable"
+                  }
+                >
+                  Upload Status: {uploadStatus + "%"}
+                </small>
+                <label
+                  htmlFor="uploadProfile"
+                  className="uploadPhoto text-white p-2 px-5 rounded-full mt-1 text-sm cursor-pointer hover:underline bg-[#424242]"
+                >
+                  Upload Photo
+                </label>
+              </div>
+
               <input
                 className="disable"
                 type="file"
@@ -162,16 +172,19 @@ const UserInfo = () => {
             </div>
             <div className="informationEditSection">
               <div className="inputWrapperUser">
-                <label htmlFor="userName">Display Name</label>
                 {changeNameCount ? (
-                  <input
-                    type="text"
-                    className="userName"
-                    id="userName"
-                    value={username}
-                    autoComplete="off"
-                    onChange={setUsernameHandler}
-                  />
+                  <>
+                    <div class="input-container mb-2">
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        className="input-field text-white text-2xl"
+                        value={username}
+                        onChange={setUsernameHandler}
+                      />
+                      <span className="input-highlight"></span>
+                    </div>
+                  </>
                 ) : (
                   <p className="username" title="Display Name (Disabled)">
                     {username}
@@ -182,19 +195,18 @@ const UserInfo = () => {
                 className="inputWrapperUser"
                 title="Email Address (Disabled)"
               >
-                <label htmlFor="emailAddress">Email Address</label>
-                <p className="emailAddress">{email}</p>
+                <p className="emailAddress text-white pl-[10px] text-xl">{email}</p>
               </div>
               <div className="buttonsArea">
                 <button
-                  className="saveChangesBtn"
+                  className="saveChangesBtn m-3 text-white p-2 px-4 rounded-full bg-[#424242] hover:underline text-sm"
                   onClick={updateProfileClickHandler}
                 >
                   Save Changes
                 </button>
               </div>
-              <div className="alertMessage">
-                Always Save Changes After Profile Photo Update. Name Can Be
+              <div className="alertMessage ml-3 text-white text-xs">
+                Always Save Changes After Profile Photo Update.<br/>Name Can Be
                 Changed Only Once.
               </div>
             </div>

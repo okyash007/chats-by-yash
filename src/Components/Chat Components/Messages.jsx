@@ -18,15 +18,15 @@ const Messages = (props) => {
   if (props.uid === props.messages.senderId) {
     return (
       <>
-        <div className="senderMessageShow" ref={refe} key={props.messages.id}>
+        <div className="senderMessageShow " ref={refe} key={props.messages.id}>
           {props.messages.photo === undefined ? (
-            <p className="userSRMessage">
+            <p className="userSRMessage text-white bg-[#595959] p-1 px-3 mr-3 mt-1 rounded-full">
               {sendReceiveMessage(props.messages.text)}
             </p>
           ) : (
             <img
               onClick={props.imageFullViewHandler}
-              className="sendPhotoMessage"
+              className="sendPhotoMessage mr-3 rounded-t-2xl rounded-l-2xl border-[#000000] border-2"
               src={props.messages.photo}
               alt="message display"
             />
@@ -45,13 +45,13 @@ const Messages = (props) => {
       <>
         <div className="receiverMessageShow" ref={refe} key={props.messages.id}>
           {props.messages.photo === undefined ? (
-            <p className="userSRMessage">
+            <p className="userSRMessage text-white bg-[#595959] p-1 px-3 ml-3 mt-1 rounded-full">
               {sendReceiveMessage(props.messages.text)}
             </p>
           ) : (
             <img
               onClick={props.imageFullViewHandler}
-              className="sendPhotoMessage"
+              className="sendPhotoMessage ml-3 rounded-t-2xl rounded-r-2xl border-[#000000] border-2"
               src={props.messages.photo}
               alt="message display"
             />

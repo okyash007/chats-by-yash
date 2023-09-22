@@ -215,12 +215,12 @@ const Home = () => {
   };
   return (
     <>
-      <section className="homeSection">
+      <section className=" bg-[#333333]">
         <section className={photoDisplay ? "displayViewSec" : "disable"}>
           <div
             className={
               android
-                ? "imageDisplayCard"
+                ? "imageDisplayCard "
                 : "imageDisplayCard animate__animated animate__bounceIn"
             }
           >
@@ -230,51 +230,58 @@ const Home = () => {
             >
               <AiOutlineClose />
             </div>
-            <img src={photoView} alt="" />
+            <img src={photoView} className="" alt="" />
           </div>
         </section>
         <div
           className={
             android
-              ? "chatCard"
-              : "chatCard animate__animated animate__bounceInDown"
+              ? "w-screen bg-[#333333] "
+              : "w-screen bg-[#333333] flex flex-col justify-between h-screen animate__animated animate__bounceInDown"
           }
         >
-          <div className="chatNavbar" id="chatNavbar">
-            <div className="chatNavTitle" onClick={() => navigate("/home")}>
+          <div
+            className="h-[8%] flex justify-between items-center "
+            id="chatNavbar"
+          >
+            <div
+              className="text-white text-2xl ml-3"
+              onClick={() => navigate("/home")}
+            >
               Chatting App By Yash <small id="beta">(Beta Version) </small>
             </div>
             <div
-              className="chatNavTitleAndroid"
+              className="text-white text-2xl sm:hidden"
               onClick={() => navigate("/home")}
             >
               Chatting App By Yash<small id="beta">(Beta Version)</small>
             </div>
             <div className="navProfileView" id="navProfileView">
-              <div className="navDivider"></div>
-              <div className="navProfileName">
-                {userDetails.name !== null
-                  ? userDetails.name.charAt(0).toUpperCase() +
-                    userDetails.name.slice(1)
-                  : "No Name"}
+              <div className="bg-[#555555] flex items-center rounded-full justify-center">
+                <div className="px-2 pl-4 text-white text-xs">
+                  {userDetails.name !== null
+                    ? userDetails.name.charAt(0).toUpperCase() +
+                      userDetails.name.slice(1)
+                    : "No Name"}
+                </div>
+                <div
+                  className=""
+                  onClick={userProfilePicClickHandler}
+                >
+                  <img src={userDetails.photo} className="rounded-full w-10" alt="" />
+                </div>
               </div>
-              <div
-                className="navProfileImage"
-                onClick={userProfilePicClickHandler}
-              >
-                <img src={userDetails.photo} alt="" />
-              </div>
-              <button className="settingBtnIcon" onClick={handlerSetting}>
+              <button className="settingBtnIcon mx-3 text-2xl" onClick={handlerSetting}>
                 <AiFillSetting />
               </button>
             </div>
           </div>
-          <section className="mainChatSection">
-            <section className="friendListSection" id="friendListSection">
-              <div className="searchFriendMenu">
+          <section className="flex h-[92%]">
+            <section className="flex flex-col w-[38%] " >
+              <div className="flex m-4">
                 <input
                   type="text"
-                  className="searchFriendInput"
+                  className=" border-b-2 bg-[#333333] w-[100%] text-xl "
                   name="searchFriend"
                   onKeyDown={handleKeyboardClickSearch}
                   value={search}
@@ -282,22 +289,22 @@ const Home = () => {
                   placeholder="Enter Unique Code"
                   onChange={(e) => setSearch(e.target.value)}
                 />
-                <button className="addFriendIcon" onClick={handlerSearch}>
+                <button className="addFriendIcon text-2xl" onClick={handlerSearch}>
                   <AiOutlineSearch />
                 </button>
               </div>
-              <span className="friendListSectionSeperator"></span>
+
               <div className="friendListView" id="friendListView">
                 {searchStart === true && (
-                  <div>
+                  <div className="">
                     <p className="searchText">Search Result</p>
                     <div
-                      className="resultCard"
+                      className="resultCard bg-black m-2 rounded-full "
                       onClick={addFriendToListHandler}
                     >
                       {searchFriend.photo !== "" ? (
                         <img
-                          className="friendProfilePhoto"
+                          className="rounded-full mr-2 w-16"
                           src={searchFriend.photo}
                           alt=""
                         />
@@ -308,8 +315,10 @@ const Home = () => {
                           alt=""
                         />
                       )}
-                      <p className="friendName">{searchFriend.name}</p>
-                      <span className="addResultIcon">
+                      <p className="friendName text-white text-xl">
+                        {searchFriend.name}
+                      </p>
+                      <span className="addResultIcon mr-6 text-xl">
                         <MdGroupAdd />
                       </span>
                     </div>
@@ -328,23 +337,22 @@ const Home = () => {
                   })}
               </div>
               <div
-                className="uniqueCodeView animate__animated animate__fadeInUp"
+                className=" absolute bottom-0 m-3 p-2 px-4 rounded-full bg-[#4f4f4f] animate__animated animate__fadeInUp"
                 onClick={copyUniqueCodeHandlerOur}
-                id="uniqueCodeShow"
               >
-                <p className="uniqueCodeLabel" title="Your Unique Code">
-                  <span id="uniqueCode">
-                    {"Your Unique Code : " + userDetails.uid.slice(0, 6)}
+                <p className=" flex cursor-pointer" title="Your Unique Code">
+                  <span className="text-[#979797] text-xs">
+                    {"Your Unique Code : "} 
+                    <p className="inline-block text-white text-sm hover:underline">{ userDetails.uid.slice(0, 6)}</p>
                   </span>
-                  <span className="copyCodeIcon">
+                  <span className="text-white text-xl">
                     <TbCopy />
                   </span>
                 </p>
               </div>
             </section>
-            <span className="mainChatSectionSeperator"></span>
             {!selectedFrnd && (
-              <div className="noSelectedChat">
+              <div className="flex justify-center items-center w-[62%] m-4 rounded-3xl bg-[#454545]">
                 <ul>
                   <li className="noSelectedtitle">
                     Select Your Friend To Chat
@@ -356,18 +364,20 @@ const Home = () => {
                     Chats Are End To End Encrypted!
                   </li>
                   <li className="noSelectedtitle">We Respect Your Privacy!</li>
-                  <li className="noSelectedtitle">For Support chat with unique code "yash"</li>
+                  <li className="noSelectedtitle">
+                    For Support chat with unique code "yash"
+                  </li>
                 </ul>
               </div>
             )}
             {selectedFrnd && (
               <section
-                className="chatViewSection animate__animated animate__fadeIn"
+                className="relative w-[62%] rounded-3xl bg-[#3b3b3b] m-4  animate__animated animate__fadeIn"
                 id="chatViewSection"
               >
-                <div className="chatViewNavbar">
+                <div className="chatViewNavbar flex justify-between border-b-2 p-5">
                   <div className="chatViewNavbarProfile">
-                    {android && (
+                    {android && ( 
                       <div
                         className="backToListIcon"
                         onClick={backToFriendListHandler}
@@ -396,7 +406,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div
-                  className="chattingSection animate__animated animate__fadeIn"
+                  className="chattingSection px-4 animate__animated animate__fadeIn"
                   id="chattingSection"
                 >
                   {messages &&

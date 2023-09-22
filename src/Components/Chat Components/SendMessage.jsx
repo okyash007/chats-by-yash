@@ -89,19 +89,19 @@ const SendMessage = (props) => {
     );
   };
   return (
-    <div className="sendMessageSection animate__animated animate__fadeIn">
+    <div className="flex absolute bottom-0 w-[100%]  m-4  pr-4 animate__animated animate__fadeIn">
       <input
         type="text"
         id="message"
         value={sendMessage}
-        className="inputMessage"
+        className=" p-3 pl-6 bg-[#444444] text-white w-full rounded-l-full"
         placeholder="Enter Your Message Here"
         required
         autoComplete="off"
         onChange={(e) => setSendMessage(e.target.value)}
         onKeyDown={handleKeyboardClickSend}
       />
-      <div className="sendMessageBtnsArea">
+      <div className="sendMessageBtnsArea bg-[#444444] pr-6 rounded-r-full ">
         {uploadStatus !== "" && (
           <span id="uploadPhotoMessageStatus">
             <span className="uploadIcon">

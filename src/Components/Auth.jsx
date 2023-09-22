@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Styles/Auth.css";
+// import "../Styles/Auth.css";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -124,7 +124,7 @@ const Auth = () => {
   };
   return (
     <>
-      <section className="authContainer">
+      <section className="authContainer flex justify-center items-center bg-[#333333] h-screen ">
         {block ? (
           <div className="blockCard">
             <p className="blockTitle">Account has been Blocked!</p>
@@ -133,114 +133,137 @@ const Auth = () => {
             </button>
           </div>
         ) : (
-          <section className={block ? "disable" : ""}>
+          <section className={block ? "disable" : " w-[30%] "}>
             <div
               className={
                 status === "signup"
-                  ? "signUpCard animate__animated animate__fadeInDown"
+                  ? "bg-[#333333] rounded-lg flex flex-col backdrop-blur-[5px] p-5 py-10 signUpCard animate__animated animate__fadeInDown"
                   : "disable"
               }
             >
-              <p className="cardTitle">Create New Account</p>
-              <div className="inputWrapper">
-                <label htmlFor="emailsu">Email Address</label>
+              <p className="cardTitle pb-2 text-6xl text-white">
+                Create New Account
+              </p>
+
+              <div class="input-container mb-2">
                 <input
                   type="email"
-                  name="email"
-                  autoComplete="off"
-                  id="emailsu"
+                  placeholder="E-mail"
+                  className="input-field text-white text-2xl"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
+                <span className="input-highlight"></span>
               </div>
-              <div className="inputWrapper">
-                <label htmlFor="passwordsu">Password</label>
+
+              <div class="input-container mb-2">
                 <input
                   type="password"
-                  name="password"
-                  id="passwordsu"
+                  placeholder="Password"
+                  className="input-field text-white text-2xl"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
+                <span className="input-highlight"></span>
               </div>
-              <div className="buttonWrapper">
+
+              <div className="buttonWrapper flex ">
                 <button
-                  className="authBtns"
+                  className="authBtns w-full bg-[#3c3c3c] text-white rounded-lg p-2 mr-1 mb-2 text-xl from-neutral-100"
                   id="signUpBtn"
                   onClick={signUpBtnClickHandler}
                 >
                   Sign Up
                 </button>
-              </div>
-              <div className="dividerWrapper"></div>
-              <div className="buttonWrapper">
+
                 <button
-                  className="googleSignIn"
+                  className="googleSignIn w-full bg-[#3c3c3c] p-2 ml-1 rounded-lg mb-2 text-xl"
                   onClick={googleLoginEventHandler}
                 >
-                  Sign In With Google
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png"
+                    className="h-9 inline-block"
+                    alt=""
+                  />
                 </button>
               </div>
-              <p className="AlreadyAccText" onClick={() => setStatus("signin")}>
+              <p
+                className="AlreadyAccText text-sm text-[#979797]"
+                onClick={() => setStatus("signin")}
+              >
                 Already Have Account?{" "}
-                <span id="signinPageRedirect">SIGN IN</span>
+                <span id="signinPageRedirect">
+                  <p className="inline-block text-white text-lg cursor-pointer hover:underline">
+                    SIGN IN
+                  </p>{" "}
+                </span>
               </p>
             </div>
             <div
               className={
                 status === "signin"
-                  ? "signinCard animate__animated animate__fadeInDown"
+                  ? " bg-[#333333] rounded-lg flex flex-col backdrop-blur-[5px] p-5 py-10 signinCard animate__animated animate__fadeInDown"
                   : "disable"
               }
             >
-              <p className="cardTitle">Sign In To Your Account</p>
-              <div className="inputWrapper">
-                <label htmlFor="emailsi">Email Address</label>
+              <p className="cardTitle pb-2 text-6xl text-white">
+                Sign In To Your Account
+              </p>
+
+              <div class="input-container mb-2">
                 <input
                   type="email"
-                  name="email"
-                  autoComplete="off"
-                  id="emailsi"
+                  placeholder="E-mail"
+                  className="input-field text-white text-2xl"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
+                <span className="input-highlight"></span>
               </div>
-              <div className="inputWrapper">
-                <label htmlFor="passwordsi">Password</label>
+
+              <div class="input-container mb-2">
                 <input
                   type="password"
-                  name="password"
-                  id="passwordsi"
+                  placeholder="Password"
+                  className="input-field text-white text-2xl"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
+                <span className="input-highlight"></span>
               </div>
-              <p className="forgetPass" onClick={forgetPasswordHandler}>
+
+              <p
+                className="forgetPass text-white text-lg py-2"
+                onClick={forgetPasswordHandler}
+              >
                 Forget Password?
               </p>
-              <div className="buttonWrapper">
+              <div className="buttonWrapper flex">
                 <button
-                  className="authBtns"
+                  className="authBtns w-full bg-[#3c3c3c] text-white rounded-lg p-2 mr-1 mb-2 text-xl"
                   id="signInBtn"
                   onClick={signinBtnClickHandler}
                 >
                   Sign In
                 </button>
-              </div>
-              <div className="dividerWrapper"></div>
-              <div className="buttonWrapper">
                 <button
-                  className="googleSignIn"
+                  className="googleSignIn w-full bg-[#3c3c3c] text-white rounded-lg p-2 mr-1 mb-2 text-xl"
                   onClick={googleLoginEventHandler}
                 >
-                  Sign In With Google
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png"
+                    className="h-9 inline-block"
+                    alt=""
+                  />
                 </button>
               </div>
-              <p className="AlreadyAccText" onClick={() => setStatus("signup")}>
+              <p className="AlreadyAccText text-sm text-[#979797]" onClick={() => setStatus("signup")}>
                 Don't Have Any Account?{" "}
-                <span id="signinPageRedirect">CREATE ONE</span>
+                <span id="signinPageRedirect"><p className="inline-block text-white text-lg cursor-pointer hover:underline"> CREATE ONE</p> </span>
               </p>
             </div>
             <ToastContainer />

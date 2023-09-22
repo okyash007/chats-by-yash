@@ -9,23 +9,23 @@ const Friends = (props) => {
   };
   return (
     <div
-      className="friendCard animate__animated animate__fadeIn"
+      className="friendCard m-2 rounded-full bg-[#434343] animate__animated animate__fadeIn "
       onClick={() => props.selectFriendHandler(props.chat[1].userInfo)}
     >
       <img
-        className="friendProfilePhoto"
+        className="rounded-full mr-2 w-16"
         src={props.chat[1].userInfo.photo}
         alt=""
       />
       <div className="nameAndLastMessageDiv">
-        <p className="friendName">{props.chat[1].userInfo.displayName}</p>
+        <p className="text-white text-xl">{props.chat[1].userInfo.displayName}</p>
         <small className="lastMessage">
           {sendReceiveMessage(props.chat[1].lastMessage) !== ""
             ? sendReceiveMessage(props.chat[1].lastMessage).slice(0, 40)
             : sendReceiveMessage(props.chat[1].lastMessage)}
         </small>
       </div>
-      <span className="chatIcon">
+      <span className="chatIcon mr-6 text-2xl">
         <BsChatRight />
       </span>
     </div>
